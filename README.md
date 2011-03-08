@@ -18,6 +18,17 @@ Extra Shortcuts
 * Cmd-1 through Cmd-9 select the tab at position 1 through 9.
 * Cmd-{ goes to the previous tab, and Cmd-} goes to the next tab.
 
+Installation
+------------
+
+In your HipChat Fluid instance, open 'Preferences', go to the
+'Advanced' section and add *.user.js as a pattern to browse to inside
+Fluid. Then, go to File, Open Location and paste the following url:
+
+    https://github.com/justinweiss/hipchat_shortcut_keys/raw/master/hipchat_shortcut_keys.user.js
+
+Install the script when Fluid asks you to.
+
 Feel free to improve it, add common shortcuts, and send me pull
 requests! If you're a better JavaScript developer than me (which
 shouldn't be hard), feel free to make the code better, too!
