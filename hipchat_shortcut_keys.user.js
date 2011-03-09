@@ -6,45 +6,6 @@
 // @author      Justin Weiss
 // ==/UserScript==
 
-var Modifiers = {
-  ctrl: false,
-  option: false,
-  command: false,
-  shift: false,
-  setModifiers: function(keyCode) {
-    switch(keyCode) {
-    case 91:
-      Modifiers.command = true;
-      break;
-    case 16:
-      Modifiers.shift = true;
-      break;
-    case 17:
-      Modifiers.ctrl = true;
-      break;
-    case 18:
-      Modifiers.option = true;
-      break;
-    }
-  },
-  resetModifiers: function(keyCode) {
-    switch(keyCode) {
-    case 91:
-      Modifiers.command = false;
-      break;
-    case 16:
-      Modifiers.shift = false;
-      break;
-    case 17:
-      Modifiers.ctrl = false;
-      break;
-    case 18:
-      Modifiers.option = false;
-      break;
-    }
-  }
-};
-
 var HipChatHelper = {
   in_lobby: function() {
     $('#tabs li.selected').attr('name') != 'tab_lobby';
@@ -70,31 +31,26 @@ var HipChatHelper = {
     for(i in bind_elems) {
       elem = bind_elems[i];
       elem.bind('keydown', function(e) {
-        
-        Modifiers.setModifiers(e.which);
 
         // Cmd-W closes the current tab if it can be closed
-        if (Modifiers.command && String.fromCharCode(e.which).toLowerCase() == 'w') {
+        if (e.metaKey && String.fromCharCode(e.which).toLowerCase() == 'w') {
           if (!HipChatHelper.in_lobby()) {
             HipChatHelper.close_current_tab();
             e.preventDefault();
             e.stopPropagation();
           }
-        } else if (Modifiers.command && String.fromCharCode(e.which).toLowerCase() > '0' && String.fromCharCode(e.which).toLowerCase() <= '9') {
+        } else if (e.metaKey && String.fromCharCode(e.which).toLowerCase() > '0' && String.fromCharCode(e.which).toLowerCase() <= '9') {
           // Cmd-(1-9) switch to the window at position 1 through 9
           HipChatHelper.select_tab_by_position(String.fromCharCode(e.which).toLowerCase());
           e.stopPropagation();
-        } else if (Modifiers.command && Modifiers.shift && e.which == 219) {
+        } else if (e.metaKey && e.shiftKey && e.which == 219) {
           // Cmd-{} moves to the previous or next tab
           chat.show_prev_tab();
           e.stopPropagation();
-        } else if (Modifiers.command && Modifiers.shift && e.which == 221) {
+        } else if (e.metaKey && e.shiftKey && e.which == 221) {
           chat.show_next_tab();
           e.stopPropagation();
         }
-      });
-      elem.bind('keyup', function(e) {
-        Modifiers.resetModifiers(e.which);
       });
     }
   }
