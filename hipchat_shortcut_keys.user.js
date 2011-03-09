@@ -11,9 +11,7 @@ var HipChatHelper = {
     $('#tabs li.selected').attr('name') != 'tab_lobby';
   },
   close_current_tab: function() {
-    if ($('#tabs li.selected').attr('name') != 'tab_lobby') {
-      chat.close_chat($('#tabs li.selected').attr('jid'));
-    }
+    chat.close_chat($('#tabs li.selected').attr('jid'));
   },
   select_tab_by_position: function(pos) {
     var tabs = $('#tabs li');
