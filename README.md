@@ -3,8 +3,8 @@ Extra shortcut keys for the HipChat Fluid instance
 
 If you're like me, you don't like using Adobe AIR. Luckily, the
 HipChat developers were awesome enough to do a really excellent job
-developing a webapp (that works really well under
-Fluid)[http://ruby-on-the-interrails.blogspot.com/2011/03/hipchat-without-air.html]. Unfortunately,
+developing a webapp [that works really well under
+Fluid](http://ruby-on-the-interrails.blogspot.com/2011/03/hipchat-without-air.html). Unfortunately,
 the common tab-manipulation commands in Mac OS don't work on the
 software tabs that hipchat provides. Fortunately, I wrote a quick
 userscript to add those shortcuts back into the Fluid app. You won't
