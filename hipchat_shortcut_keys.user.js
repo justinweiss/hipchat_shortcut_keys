@@ -25,6 +25,7 @@ var HipChatHelper = {
 
 (function () {
   if (window.fluid) {
+    $('li a.download').hide();
     var bind_elems = [$(document), $('#message_input')];
     for(i in bind_elems) {
       elem = bind_elems[i];
