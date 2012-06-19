@@ -29,7 +29,7 @@ var HipChatHelper = {
     var bind_elems = [$(document), $('#message_input')];
     for(i in bind_elems) {
       elem = bind_elems[i];
-      elem.bind('keydown', function(e) {
+      elem.bind('keypress', function(e) {
 
         // Cmd-W closes the current tab if it can be closed
         if (e.metaKey && String.fromCharCode(e.which).toLowerCase() == 'w') {
